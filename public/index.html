@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <div id="imageModal" class="modal">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage" alt="Certificate Image" />
+    </div>
+    <div class="main-background"></div>
+    <header id="header">
+      <nav id="main-nav">
+        <a href="#" class="logo scroll-link">Welcome to Miguel's Portfolio!</a>
+        <div>
+          <ul class="nav-links">
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <nav id="mobile-bottom-nav">
+      <a href="#" class="logo scroll-link"
+        ><img src="pics/home.png" alt="home icon" class="mb-icon"
+      /></a>
+      <a href="#contact" class="scroll-link"
+        ><img src="pics/contact.png" alt="Contact icon" class="mb-icon"
+      /></a>
+      <a href="#about" class="scroll-link"
+        ><img src="pics/about.png" alt="About icon" class="mb-icon"
+      /></a>
+      <a href="#skills" class="scroll-link"
+        ><img src="pics/skills.png" alt="skills icon" class="mb-icon"
+      /></a>
+      <a href="#projects" class="scroll-link"
+        ><img src="pics/projects.png" alt="Projects icon" class="mb-icon"
+      /></a>
+    </nav>
+    <section id="contact">
+      <div class="flip-card" id="contactCard">
+        <div class="flip-card-front">
+          <div class="contact-pic-container">
+            <img
+              src="./pics/profile-pic.png"
+              alt="Enrico Miguel San Pedro picture"
+              class="about-pic"
+            />
+          </div>
+          <div class="contact-text">
+            <p class="contact-text-p1">Hello! I am</p>
+            <h1 class="title-contact">Enrico Miguel S. San Pedro</h1>
+            <p class="contact-text-p2">
+              <span id="typing-text"></span><span class="cursor">|</span>
+            </p>
+            <div class="btn-container">
+              <button
+                class="btn btn-1"
+                onclick="openPDFModal('./pics/migol resume.pdf')"
+              >
+                View Resume
+              </button>
+              <button class="btn btn-2" onclick="flipCard()">
+                Contact Me!
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <div class="contact-content">
+            <h2 class="contact-title">Get in touch with me</h2>
+            <form id="contactForm">
+              <div class="form-row">
+                <label for="name" class="info">Name:</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+
+              <div class="form-row">
+                <label for="email" class="info">Email:</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+
+              <div class="form-row">
+                <label for="message">Message:</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  maxlength="200"
+                  placeholder="Maximum of 200 characters"
+                ></textarea>
+              </div>
+              <div id="formStatus"></div>
+              <button type="submit" id="sendButton">Send Message</button>
+            </form>
+
+            <p id="formStatus"></p>
+
+            <button class="flip-back-btn" onclick="flipCard()">⤺</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <h1 class="title">About Me</h1>
+      <div class="desc-container">
+        <p class="about-desc">
+          I am Enrico Miguel S. San Pedro, a fresh graduate of the course
+          Bachelor of Science in Computer Engineering at Bulacan State
+          University - Meneses Campus. Through the course of my degree, I have
+          developed a keen interest in building softwares and even integrating
+          software with hardware systems.
+        </p>
+      </div>
+      <ul class="about-links">
+        <li>
+          <a href="#profile" class="active">
+            <span class="icon-about" aria-label="Profile">
+              <img src="pics/profile.png" alt="Profile Icon" />
+            </span>
+            <span class="text-label">Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="#education">
+            <span class="icon-about" aria-label="Education">
+              <img src="pics/education.png" alt="Education Icon" />
+            </span>
+            <span class="text-label">Education</span>
+          </a>
+        </li>
+        <li>
+          <a href="#certification">
+            <span class="icon-about" aria-label="Certifications">
+              <img src="pics/certification.png" alt="Certification Icon" />
+            </span>
+            <span class="text-label">Certifications</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="about-content">
+        <div class="about-text">
+          <h2 id="aboutTitle"></h2>
+          <p id="aboutText"></p>
+        </div>
+      </div>
+
+      <template id="profile"></template>
+
+      <template id="education"></template>
+
+      <template id="certifications"></template>
+    </section>
+    <section id="skills">
+      <h1 class="title">My Programming Background</h1>
+      <div class="desc-container">
+        <p class="about-desc">
+          As a Computer Engineering student, I have been in the learning
+          spectrum of two of the well-known fields in the tech industry, the
+          Frontend Development and integrating software to Hardware Development.
+          With most of the programming languagues that were discussed in the
+          course of my degree had a ceiling of just the basics and foundation, I
+          have adapted to learn more by my self to thrive.
+        </p>
+      </div>
+
+      <div class="skills-tab-header">
+        <h2 class="skills-title active" data-skill="frontend">
+          Frontend Development
+        </h2>
+        <h2 class="skills-title" data-skill="hardware">Hardware Development</h2>
+      </div>
+
+      <div class="skills-tab-content">
+        <div class="skills-box active" data-skill="frontend">
+          <div class="article-container" id="frontend-icons">
+            <article data-skill="html">
+              <img
+                src="pics/html.png"
+                alt="HTML icon"
+                class="icon-logo"
+                data-id="html"
+              />
+            </article>
+            <article data-skill="css">
+              <img
+                src="pics/css.png"
+                alt="CSS icon"
+                class="icon-logo"
+                data-id="css"
+              />
+            </article>
+            <article data-skill="js">
+              <img
+                src="pics/js.png"
+                alt="JavaScript icon"
+                class="icon-logo"
+                data-id="js"
+              />
+            </article>
+            <article data-skill="tailwind">
+              <img
+                src="pics/t-css.png"
+                alt="TailwindCSS icon"
+                class="icon-logo"
+                data-id="tailwind"
+              />
+            </article>
+          </div>
+          <div class="article-text-container" id="frontend-text"></div>
+        </div>
+
+        <div class="skills-box" data-skill="hardware">
+          <div class="article-container" id="hardware-icons">
+            <article data-skill="c">
+              <img
+                src="pics/c.png"
+                alt="C icon"
+                class="icon-logo"
+                data-id="c"
+              />
+            </article>
+            <article data-skill="cpp">
+              <img
+                src="pics/c++.png"
+                alt="C++ icon"
+                class="icon-logo"
+                data-id="cpp"
+              />
+            </article>
+            <article data-skill="python">
+              <img
+                src="pics/Python.png"
+                alt="Python icon"
+                class="icon-logo"
+                data-id="python"
+              />
+            </article>
+          </div>
+          <div class="article-text-container" id="hardware-text"></div>
+        </div>
+      </div>
+    </section>
+    <section id="projects">
+      <h1 class="title">My Projects</h1>
+      <div class="desc-container">
+        <p class="about-desc">
+          Let me feature my best works throughout the years as I showcase some
+          of my best works throughout the years of my Bachelor's Degree in this
+          section.
+        </p>
+      </div>
+      <div class="timeline-container">
+        <div class="timeline">
+          <div class="timeline-line">
+            <div class="timeline-progress" id="timelineProgress"></div>
+          </div>
+          <div class="timeline-years">
+            <div class="year-marker" data-year="2023">
+              <div class="year-dot"></div>
+              <div class="year-label">2023</div>
+            </div>
+            <div class="year-marker" data-year="2024">
+              <div class="year-dot"></div>
+              <div class="year-label">2024</div>
+            </div>
+            <div class="year-marker" data-year="2025">
+              <div class="year-dot"></div>
+              <div class="year-label">2025</div>
+            </div>
+            <div class="year-marker" data-year="22025">
+              <div class="year-dot"></div>
+              <div class="year-label">2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-content">
+        <div class="image-stack" id="imageStack"></div>
+        <div class="project-description">
+          <p id="projectYear" class="project-year"></p>
+          <h2 id="projectTitle"></h2>
+          <p id="projectText"></p>
+        </div>
+      </div>
+      <template id="2023-template">
+        <img src="pics/arduino.jpg" class="layer layer-top" alt="Top image" />
+        <img
+          src="pics/wtl-2.jpg"
+          class="layer layer-middle"
+          alt="Middle image"
+        />
+        <img src="pics/wtl.jpg" class="layer layer-bottom" alt="Bottom image" />
+      </template>
+
+      <template id="2024-template">
+        <img
+          src="pics/arduino-game.jpeg"
+          class="layer layer-top"
+          alt="Quiz 1"
+        />
+        <img src="pics/ag-3.jpg" class="layer layer-middle" alt="Quiz 2" />
+        <img src="pics/ag-2.jpg" class="layer layer-bottom" alt="Quiz 3" />
+      </template>
+
+      <template id="2025-template">
+        <img src="pics/sd.jpg" class="layer layer-top" alt="Scabies 1" />
+        <img src="pics/sd-3.jpg" class="layer layer-middle" alt="Scabies 2" />
+        <img src="pics/sd-2.jpg" class="layer layer-bottom" alt="Scabies 3" />
+      </template>
+      <template id="22025-template">
+        <img src="pics/port-1.png" class="layer" />
+        <img src="pics/port-2.png" class="layer" />
+        <img src="pics/port-3.png" class="layer" />
+      </template>
+    </section>
+    <div id="pdfModal" class="modal">
+      <span class="close-btn" onclick="closePDFModal()">&times;</span>
+      <iframe
+        id="pdfViewer"
+        class="modal-content pdf-frame"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <footer id="footer">
+      <div class="footer-content">
+        <p>© 2025 Enrico Miguel S. San Pedro. All rights reserved.</p>
+
+        <div class="footer-socials">
+          <a href="https://github.com/migol1of1" target="_blank">
+            <img src="pics/github.png" alt="GitHub icon" />
+          </a>
+          <a
+            href="https://linkedin.com/in/enrico-miguel-san-pedro-123b53310/"
+            target="_blank"
+          >
+            <img src="pics/linkedin.png" alt="LinkedIn icon" />
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
