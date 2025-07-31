@@ -257,15 +257,23 @@ document.getElementById("sendButton").addEventListener("click", async (e) => {
   }
 
   try {
-    const response = await fetch("/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, message }),
-    });
+    const response = await fetch(
+      "https://miguel-portfolio-h6k8.onrender.com/submit",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      }
+    );
 
-    const result = await response.json();
+    let result = {};
+    try {
+      result = await response.json();
+    } catch (jsonError) {
+      console.warn("Invalid JSON in response:", jsonError);
+    }
 
     if (response.ok) {
       formStatus.textContent = "Message sent successfully!";
