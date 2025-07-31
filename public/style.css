@@ -155,6 +155,7 @@ a.active {
 }
 
 /* Logo */
+
 .logo {
   color: rgb(55, 55, 55);
   text-shadow: var(--text-glow);
@@ -168,7 +169,8 @@ a.active {
   text-shadow: 0 0 0, 0 0 10px white, 0 0 40px white;
   color: rgba(255, 255, 255, 0.5);
 }
-/* 🟡 Mobile Bottom Nav */
+/* Mobile Bottom Nav */
+
 #mobile-bottom-nav {
   display: none;
 }
@@ -184,14 +186,16 @@ a.active {
   filter: drop-shadow(0 0 10px white) brightness(1.4);
 }
 
-/* 🟦 Sections */
+/* Sections */
+
 section {
   margin: 0 3rem;
   box-sizing: border-box;
-  min-height: fit-content; /* remove if unnecessary — possibly redundant with content height */
+  min-height: fit-content;
 }
 
-/* 🟩 Contact Section */
+/* Contact Section */
+
 #contact {
   display: flex;
   justify-content: center;
@@ -220,10 +224,10 @@ section {
   height: auto;
   border-radius: 50%;
   object-fit: cover;
-  filter: drop-shadow(0 5px 5px whitesmoke); /* moved here from .about-pic */
+  filter: drop-shadow(0 5px 5px whitesmoke);
 }
 
-/* 📝 Contact Text */
+/* Contact Text */
 .contact-text {
   align-self: center;
   text-align: center;
@@ -266,7 +270,7 @@ section {
   text-shadow: 0 0 0, 0 0 10px white, 0 0 20px white;
 }
 
-/* 🔗 Social Icons */
+/* Social Icons */
 #socials-container {
   display: flex;
   justify-content: center;
@@ -281,12 +285,34 @@ section {
 
 /* about sect */
 
-.about-links .text-label {
-  display: inline;
+.icon-about {
+  display: block;
+  margin-right: 2rem;
 }
 
-.about-links .icon-about {
-  display: none;
+.about-links .icon-about img {
+  height: 1.5rem;
+  width: 1.5rem;
+  filter: brightness(0) invert(1);
+}
+
+.about-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.about-links a.active .icon-about img {
+  filter: drop-shadow(0 0 0) drop-shadow(0 0 10px white)
+    drop-shadow(0 0 20px white);
+  opacity: 1;
+  transform: scale(1.2);
+  transition: all 0.3s ease;
 }
 
 #about {
@@ -314,17 +340,6 @@ section {
   list-style: none;
 }
 
-.about-links li {
-  list-style: none;
-}
-
-.about-links a {
-  text-decoration: none;
-  color: whitesmoke;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
 .about-links a.active {
   text-decoration: none;
   opacity: 1;
@@ -335,12 +350,20 @@ section {
   justify-content: center;
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.5s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
 }
 
 .about-content.fade-in {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
+}
+
+.about-content.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
 }
 
 .about-text {
@@ -349,7 +372,7 @@ section {
   display: inline-block;
   padding: 2rem;
   border: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 .cert-btn {
@@ -500,9 +523,10 @@ section {
 
 label[for="message"] {
   color: whitesmoke;
-  margin-top: -95px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
   text-align: left;
 }
 
@@ -539,7 +563,6 @@ textarea {
   margin-top: 2rem;
   padding: 0.5rem;
   background: whitesmoke;
-  color: rgb(from color r g b);
   border-radius: 18px;
   cursor: pointer;
   font-weight: 400;

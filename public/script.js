@@ -425,18 +425,20 @@ aboutNavLinks.forEach((link) => {
     link.classList.add("active");
 
     const sectionId = link.getAttribute("href").replace("#", "");
-    const template = document.getElementById(`${sectionId}`);
-
     const titleElement = document.getElementById("aboutTitle");
     const textElement = document.getElementById("aboutText");
     const contentBox = document.querySelector(".about-content");
     const info = aboutInfo[sectionId];
 
     if (info && titleElement && textElement && contentBox) {
+      // Trigger fade-out first
       contentBox.classList.remove("fade-in");
+      contentBox.classList.add("fade-out");
+
       setTimeout(() => {
-        titleElement.textContent = info.title;
         textElement.innerHTML = info.content;
+
+        contentBox.classList.remove("fade-out");
         contentBox.classList.add("fade-in");
       }, 400);
     }

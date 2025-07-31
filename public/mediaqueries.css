@@ -1,4 +1,4 @@
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   #main-nav {
     display: none;
   }
@@ -84,7 +84,8 @@
   }
 
   .flip-card-back {
-    margin-top: 5rem;
+    margin-top: 2rem;
+    height: 500px;
   }
 
   .contact-pic-container {
@@ -109,18 +110,41 @@
     width: 40%;
   }
 
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 2rem;
+  }
+
+  .form-row label {
+    width: 100%;
+    text-align: left;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  #email {
+  }
+
+  .form-row input,
+  .form-row textarea {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+  }
+
   .contact-content {
     flex-direction: column;
     align-items: center;
     text-align: left;
-    gap: 1.5rem;
   }
 
   .contact-title {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   .contact-content {
+    position: relative;
     align-items: flex-start;
     text-align: left;
   }
@@ -130,7 +154,6 @@
   }
 
   #contactForm {
-    margin-left: 1rem;
     width: 100%;
     max-width: 100%;
     text-align: left;
@@ -138,16 +161,18 @@
 
   textarea {
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 0.25rem;
   }
 
   .flip-back-btn {
+    position: absolute;
+    text-align: center;
+    padding-bottom: 2rem;
+    bottom: 3.75rem;
+    left: 2rem;
     height: 2rem;
     width: 3rem;
-    bottom: 1rem;
-    left: 1rem;
     font-size: 1.5rem;
-    padding: 0.25rem;
   }
 
   /* about sect */
@@ -414,7 +439,7 @@
   }
 }
 
-@media (min-width: 667px) and (max-width: 932px) and (orientation: landscape) {
+@media (min-width: 667px) and (max-width: 1023px) and (orientation: landscape) {
   #main-nav {
     display: none;
   }
@@ -480,7 +505,7 @@
 
   .about-content {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     padding: 1rem;
   }
 
@@ -657,10 +682,6 @@
     display: none;
   }
 
-  .about-links .icon-about {
-    display: inline;
-  }
-
   .about-links .icon-about img {
     height: 1.5rem;
     width: 1.5rem;
@@ -669,13 +690,12 @@
 
   .about-links {
     flex-direction: row;
-    justify-content: space-around;
-    padding: 1rem 0;
+    padding: 0;
   }
 
   .about-links a {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 0.25rem;
   }
@@ -775,7 +795,7 @@
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1367px) and (orientation: landscape) {
+@media (min-width: 501px) and (max-width: 740px) and (orientation: portrait) {
   #main-nav {
     display: none;
   }
@@ -796,50 +816,158 @@
     gap: 0.5rem;
   }
 
-  #contact {
-    margin-bottom: 12rem;
+  #mobile-bottom-nav a {
+    color: rgba(255, 255, 255, 0.2);
+    text-decoration-color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.6s ease, opacity 0.6s ease;
   }
 
-  .about-text {
+  #mobile-bottom-nav a.inactive {
+    opacity: 0.5;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  #mobile-bottom-nav a.active {
+    text-shadow: 0 0 0, 0 0 10px white, 0 0 20px white;
+    color: rgb(255, 255, 255);
+  }
+
+  /* main adjustments */
+
+  #about,
+  #skills,
+  #projects {
+    padding: 4rem 1rem;
+  }
+
+  img,
+  iframe,
+  .modal-content {
+    max-width: 100%;
+    height: auto;
+  }
+
+  section {
+    margin: 0 1rem;
+    margin-bottom: 8rem;
+  }
+
+  /* contact section */
+
+  #contact {
+    margin-top: 4rem;
+  }
+
+  .title-contact {
+    font-size: 1.5rem;
+  }
+
+  .contact-text-p2 {
+    font-size: 1.25rem;
+  }
+
+  .flip-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .flip-card-back {
+    margin-top: 2rem;
+    height: 500px;
+  }
+
+  .contact-pic-container {
+    width: 12rem;
+    height: 12rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-text {
+    margin-left: 0;
+    padding: 0;
     text-align: center;
   }
 
-  .about-links .text-label {
-    display: none;
-  }
-
-  .about-links .icon-about {
-    display: inline;
-  }
-
-  .about-links .icon-about img {
-    height: 1.5rem;
-    width: 1.5rem;
-    filter: brightness(0) invert(1);
-  }
-
-  .about-links {
+  .btn-container {
     flex-direction: row;
-    justify-content: space-around;
-    padding: 1rem 0;
+    gap: 0.75rem;
+    margin-top: 1rem;
   }
 
-  .about-links a {
-    display: flex;
+  .btn {
+    width: 40%;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 2rem;
+  }
+
+  .form-row label {
+    width: 100%;
+    text-align: left;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  #email {
+    margin-bottom: 5rem;
+  }
+
+  .form-row input,
+  .form-row textarea {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  .contact-content {
     flex-direction: column;
     align-items: center;
-    gap: 0.25rem;
+    text-align: left;
   }
 
-  .about-links a.active .icon-about img {
-    filter: drop-shadow(0 0 0) drop-shadow(0 0 10px white)
-      drop-shadow(0 0 20px white);
-    opacity: 1;
-    transform: scale(1.2);
-    transition: all 0.3s ease;
+  .contact-title {
+    font-size: 2rem;
   }
 
-  footer {
-    margin-bottom: 3rem;
+  .contact-content {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  #formStatus {
+    font-size: 0.8rem;
+  }
+
+  #contactForm {
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  textarea {
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  .flip-back-btn {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    height: 2rem;
+    width: 3rem;
+    font-size: 1.5rem;
+    padding: 0.25rem;
   }
 }
