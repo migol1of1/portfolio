@@ -1,5 +1,5 @@
 messages.json
 package-lock.json
 .vercel
-node_modules
+node_modules/
 .env
