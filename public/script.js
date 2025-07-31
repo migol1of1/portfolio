@@ -232,6 +232,8 @@ if (contactSection) {
 //form await/fetch
 document.getElementById("sendButton").addEventListener("click", async (e) => {
   e.preventDefault();
+
+  const form = document.getElementById("contactForm");
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const message = document.getElementById("message").value.trim();
@@ -253,15 +255,25 @@ document.getElementById("sendButton").addEventListener("click", async (e) => {
   try {
     const response = await fetch("/api/submit", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ name, email, message }),
     });
 
+    const contentType = response.headers.get("content-type");
+    if (!response.ok) {
+      throw new Error("Server responded with an error");
+    }
+    if (!contentType || !contentType.includes("application/json")) {
+      throw new Error("Invalid response format");
+    }
+
     const result = await response.json();
     if (result.success) {
-      formStatus.textContent = "✅ Message sent successfully!";
+      formStatus.textContent = "✅ Message sent to Miguel!";
       formStatus.style.color = "green";
-      document.getElementById("contactForm").reset();
+      form.reset();
     } else {
       formStatus.textContent = "❌ Failed to send message.";
       formStatus.style.color = "red";
@@ -271,6 +283,7 @@ document.getElementById("sendButton").addEventListener("click", async (e) => {
     formStatus.textContent = "❌ Error sending message.";
     formStatus.style.color = "red";
   }
+
   setTimeout(() => {
     formStatus.textContent = "";
     formStatus.style.color = "";

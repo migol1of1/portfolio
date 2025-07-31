@@ -2,3 +2,4 @@ node_modules/
 messages.json
 package-lock.json
 server.js
+.vercel
