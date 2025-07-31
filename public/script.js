@@ -221,7 +221,7 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.7,
+    threshold: 1,
   }
 );
 
@@ -526,7 +526,7 @@ document.addEventListener("DOMContentLoaded", () => {
       box.classList.toggle("active", isActive);
     });
 
-    showFirstIconFor(skill); // show first icon automatically
+    showFirstIconFor(skill);
   };
 
   const typeTitle = (element, text, speed = 60) => {
