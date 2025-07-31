@@ -9,10 +9,6 @@
     <link rel="icon" href="/favicon.ico" />
   </head>
   <body>
-    <div id="imageModal" class="modal">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <img class="modal-content" id="modalImage" alt="Certificate Image" />
-    </div>
     <div class="main-background"></div>
     <header id="header">
       <nav id="main-nav">
@@ -322,15 +318,6 @@
         <img src="pics/port-3.png" class="layer" />
       </template>
     </section>
-    <div id="pdfModal" class="modal">
-      <span class="close-btn" onclick="closePDFModal()">&times;</span>
-      <iframe
-        id="pdfViewer"
-        class="modal-content pdf-frame"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
-    </div>
 
     <footer id="footer">
       <div class="footer-content">
@@ -349,6 +336,19 @@
         </div>
       </div>
     </footer>
+    <div id="pdfModal" class="modal">
+      <span class="close-btn" onclick="closePDFModal()">&times;</span>
+      <iframe
+        id="pdfViewer"
+        class="modal-content pdf-frame"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div id="imageModal" class="modal">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage" alt="Certificate Image" />
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
