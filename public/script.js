@@ -239,6 +239,10 @@ document.getElementById("sendButton").addEventListener("click", async (e) => {
   const message = document.getElementById("message").value.trim();
   const formStatus = document.getElementById("formStatus");
 
+  formStatus.textContent = "";
+  formStatus.style.color = "";
+
+  // Validate input
   if (!name || !email || !message) {
     formStatus.textContent = "Please fill out all the fields!";
     formStatus.style.color = "red";
@@ -247,13 +251,13 @@ document.getElementById("sendButton").addEventListener("click", async (e) => {
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email)) {
-    formStatus.textContent = "Please use a valid email address!";
+    formStatus.textContent = "Please enter a valid email address!";
     formStatus.style.color = "red";
     return;
   }
 
   try {
-    const response = await fetch("/api/submit", {
+    const response = await fetch("http://localhost:3000/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -261,26 +265,19 @@ document.getElementById("sendButton").addEventListener("click", async (e) => {
       body: JSON.stringify({ name, email, message }),
     });
 
-    const contentType = response.headers.get("content-type");
-    if (!response.ok) {
-      throw new Error("Server responded with an error");
-    }
-    if (!contentType || !contentType.includes("application/json")) {
-      throw new Error("Invalid response format");
-    }
-
     const result = await response.json();
-    if (result.success) {
-      formStatus.textContent = "✅ Message sent to Miguel!";
+
+    if (response.ok) {
+      formStatus.textContent = "Message sent successfully!";
       formStatus.style.color = "green";
       form.reset();
     } else {
-      formStatus.textContent = "❌ Failed to send message.";
+      formStatus.textContent = result?.error || "Something went wrong.";
       formStatus.style.color = "red";
     }
   } catch (error) {
-    console.error("Error:", error);
-    formStatus.textContent = "❌ Error sending message.";
+    console.error("Submission error:", error);
+    formStatus.textContent = "Network error.";
     formStatus.style.color = "red";
   }
 

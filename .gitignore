@@ -1,5 +1,5 @@
-node_modules/
 messages.json
 package-lock.json
-server.js
 .vercel
+node_modules
+.env
