@@ -74,6 +74,9 @@ Test.create({ message: "Connection successful!" })
   .then(() => console.log("✅ Test insert successful."))
   .catch((err) => console.error("❌ Test insert failed:", err));
 
+app.get("/ping", (_, res) => {
+  res.send("OK");
+});
 // Start server
 app.listen(port, () => {
   console.log(`🚀 Server running at http://localhost:${port}`);
