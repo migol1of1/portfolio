@@ -74,9 +74,20 @@ Test.create({ message: "Connection successful!" })
   .then(() => console.log("✅ Test insert successful."))
   .catch((err) => console.error("❌ Test insert failed:", err));
 
-app.get("/ping", (_, res) => {
-  res.send("OK");
+app.get("/ping", async (_, res) => {
+  try {
+    res.setHeader("Content-Type", "text/plain");
+    res.send("OK");
+  } catch (err) {
+    res.status(200).send("OK");
+  }
 });
+
+app.use((err, _req, res, _next) => {
+  console.error("Caught error:", err.message);
+  res.status(500).send("Something went wrong");
+});
+
 // Start server
 app.listen(port, () => {
   console.log(`🚀 Server running at http://localhost:${port}`);
