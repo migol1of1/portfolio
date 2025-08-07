@@ -463,7 +463,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const icons = document.querySelectorAll(".icon-logo");
 
   const skillDescriptions = {
-    frontend: {
+    web: {
       html: {
         title: "HTML",
         text: "- Experienced in writing semantic, accessible, and responsive HTML structures.",
@@ -476,13 +476,28 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       js: {
         title: "JavaScript",
-        text: "- JavaScript fundamental knowledge that I am currently focusing on improvements.",
-        progress: 40,
+        text: "- Proficient in JavaScript for client-side interactivity and asynchronous operations. Continuously improving problem-solving and DOM manipulation skills.",
+        progress: 55,
       },
       tailwind: {
         title: "TailwindCSS",
         text: "- Fundamental knowledge of Tailwind CSS, currently being learned to apply for my future projects.",
+        progress: 30,
+      },
+      nodeJs: {
+        title: "Node.js",
+        text: "- Introductory understanding of Node.js for building backend services using JavaScript on the server side.",
         progress: 25,
+      },
+      express: {
+        title: "Express",
+        text: "- Learned the basics of creating web servers and API routes using Express with Node.js.",
+        progress: 22,
+      },
+      mongodb: {
+        title: "MongoDB",
+        text: "- Basic experience using MongoDB through its cloud-hosted version, Atlas, primarily for simple data storage and integration subjected to this portfolio.",
+        progress: 18,
       },
     },
     hardware: {
@@ -504,7 +519,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
-  // Show first icon
   const showFirstIconFor = (skill) => {
     const box = document.querySelector(`.skills-box[data-skill="${skill}"]`);
     if (!box) return;
@@ -515,7 +529,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  //  Tab activation
   const activateTab = (skill) => {
     tabTitles.forEach((title) => {
       title.classList.toggle("active", title.dataset.skill === skill);
@@ -635,8 +648,8 @@ document.addEventListener("DOMContentLoaded", () => {
     fadeInParagraph(newParagraph);
   };
 
-  //  show first skill title
-  activateTab("frontend");
+  // show first skill title
+  activateTab("web");
 
   // skill title click events
   tabTitles.forEach((title) =>
