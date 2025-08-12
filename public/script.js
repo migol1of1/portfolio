@@ -722,7 +722,7 @@ const projectInfo = {
   },
   2024: {
     title: "Arduino Based - Interactive Game Console",
-    text: "This game console is consist of 2 different games (mini quiz game and stick game) that uses buttons for respective controls alongside a reset button.",
+    text: "This game console is consist of 2 different games (mini quiz game and pac man) that uses buttons for respective controls alongside a reset button.",
     year: "Dember 2024",
   },
   2025: {
